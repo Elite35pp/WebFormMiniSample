@@ -45,9 +45,9 @@ namespace homework.DBSource
                 return null;
             }
         }
-           
 
-        
+
+
 
 
         /// <summary>查詢流水帳</summary>
@@ -68,33 +68,18 @@ namespace homework.DBSource
                          FROM Accounting
                          WHERE id = @id AND UserID = @userID";
 
-            using (SqlConnection conn = new SqlConnection(connStr))
+            List<SqlParameter> list = new List<SqlParameter>();
+            list.Add(new SqlParameter("@id", id));
+            list.Add(new SqlParameter("@userID", userID));
+
+            try
             {
-                using (SqlCommand comm = new SqlCommand(dbCommand, conn))
-                {
-                    comm.Parameters.AddWithValue("@id", id);
-                    comm.Parameters.AddWithValue("@userID", userID);
-
-                    try
-                    {
-                        conn.Open();
-                        var reader = comm.ExecuteReader();
-
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
-
-                        if (dt.Rows.Count == 0)
-                            return null;
-
-                        return dt.Rows[0];
-
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.WriteLog(ex);
-                        return null;
-                    }
-                }
+                return DBHelper.ReadDataRow(connStr, dbCommand, list);
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+                return null;
             }
         }
 
