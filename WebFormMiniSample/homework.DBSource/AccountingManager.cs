@@ -11,11 +11,7 @@ namespace homework.DBSource
 {
     public class AccountingManager
     {
-        public static string GetConnectionString()
-        {
-            string val = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            return val;
-        }
+
 
 
 
@@ -24,7 +20,7 @@ namespace homework.DBSource
         /// <returns></returns>
         public static DataTable GetAccountingList(string userID)
         {
-            string connStr = GetConnectionString();
+            string connStr = DBHelper.GetConnectionString();
             string dbCommand =
                       $@"SELECT
                          ID,
@@ -69,7 +65,7 @@ namespace homework.DBSource
         /// <returns></returns>
         public static DataRow GetAccounting(int id, string userID)
         {
-            string connStr = GetConnectionString();
+            string connStr = DBHelper.GetConnectionString();
             string dbCommand =
                       $@"SELECT
                          ID,
@@ -128,7 +124,7 @@ namespace homework.DBSource
             // <<<檢查輸入是否正確>>>
 
 
-            string connStr = GetConnectionString();
+            string connStr = DBHelper.GetConnectionString();
             string dbCommand =
                 $@" INSERT INTO [dbo].[Accounting]
                    (
@@ -196,7 +192,7 @@ namespace homework.DBSource
             // <<<檢查輸入是否正確>>>
 
 
-            string connStr = GetConnectionString();
+            string connStr = DBHelper.GetConnectionString();
             string dbCommand =
                 $@" UPDATE [dbo].[Accounting]          
                     SET
@@ -249,7 +245,7 @@ namespace homework.DBSource
         /// <param name="ID"></param>
         public static void DeleteAccounting(int ID)
         {
-            string connStr = GetConnectionString();
+            string connStr = DBHelper.GetConnectionString();
             string dbCommand =
                 $@" DELETE [dbo].[Accounting]          
                    WHERE ID = @id ";

@@ -12,16 +12,11 @@ namespace homework.DBSource
     public class UserInfoManager
     {
 
-        public static string GetConnectionString()
-        {
-            string val = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            return val;
-        }
 
 
         public  static DataRow GetUserInfoByAccount(string account)
         {
-            string connectionString = GetConnectionString();
+            string connectionString = DBHelper.GetConnectionString();
             string dbCommandString = @"SELECT
                                         [ID],
                                         [Account],
