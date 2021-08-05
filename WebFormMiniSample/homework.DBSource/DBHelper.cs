@@ -38,7 +38,6 @@ namespace homework.DBSource
         }
 
 
-
          public static DataRow ReadDataRow(string connStr, string dbCommand, List<SqlParameter> list)
          {
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -61,5 +60,19 @@ namespace homework.DBSource
             }
         }
 
+
+        public static void ModifyData(string connStr, string dbCommand, List<SqlParameter> paramList)
+        {
+            //連結與執行
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand comm = new SqlCommand(dbCommand, conn))
+                {
+                    comm.Parameters.AddRange(paramList.ToArray());
+                    conn.Open();
+                    comm.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

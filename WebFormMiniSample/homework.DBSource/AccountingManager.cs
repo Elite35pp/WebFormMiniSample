@@ -227,24 +227,19 @@ namespace homework.DBSource
                    WHERE ID = @id ";
 
 
-            //連結與執行
-            using (SqlConnection conn = new SqlConnection(connStr))
-            {
-                using (SqlCommand comm = new SqlCommand(dbCommand, conn))
-                {
-                    comm.Parameters.AddWithValue("@id", ID);
 
-                    try
-                    {
-                        conn.Open();
-                        int effectRows = comm.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.WriteLog(ex);
-                    }
-                }
+            List<SqlParameter> paramList = new List<SqlParameter>();
+            paramList.Add(new SqlParameter("@id", ID));
+
+            try
+            {
+                DBHelper.ModifyData(connStr, dbCommand, paramList);
             }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+            }
+        
         }
     }
 }
