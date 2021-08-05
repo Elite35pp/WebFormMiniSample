@@ -1,4 +1,5 @@
-﻿using homework.DBSource;
+﻿using homework.Auth;
+using homework.DBSource;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,31 +16,29 @@ namespace homework.SystemAdmin
         {
             if(!this.IsPostBack) // 可能是按鈕跳回本頁，所以要判斷postback
             {
-                if(this.Session["UserLoginInfo"] == null) //如果尚未登入，導致登入業
+                if (!AuthManager.IsLogined())//如果尚未登入，導至登入頁
                 {
                     Response.Redirect("/Login.aspx");
                     return;
                 }
 
-            string account = this.Session["UserLoginInfo"] as string;
-            DataRow dr = UserInfoManager.GetUserInfoByAccount(account);
+             var currentUser = AuthManager.GetCurrentUser();
 
-            if (dr == null) //如果帳號不存在，導致登入頁
+            if (currentUser == null) //如果帳號不存在，導致登入頁
             {
-                this.Session["UserLoginInfo"] = null;
                 Response.Redirect("/Login.aspx");
                 return;
             }
 
-            this.ltAccount.Text = dr["Account"].ToString();
-            this.ltName.Text = dr["Name"].ToString();
-            this.ltEmail.Text = dr["Email"].ToString();
+            this.ltAccount.Text = currentUser.Account;
+            this.ltName.Text = currentUser.Name;
+            this.ltEmail.Text = currentUser.Email;
             }
         }
 
         protected void btLogout_Click(object sender, EventArgs e)
         {
-            this.Session["UserLoginInfo"] = null; //清除登入資訊，導致登入頁
+            AuthManager.Logout(); //登出並導致登入頁
             Response.Redirect("/Login.aspx");
         }
     }

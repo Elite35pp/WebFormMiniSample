@@ -1,4 +1,5 @@
-﻿using homework.DBSource;
+﻿using homework.Auth;
+using homework.DBSource;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +14,19 @@ namespace homework.SystemAdmin
         protected void Page_Load(object sender, EventArgs e)
         {
             //驗證登入
-            if (this.Session["UserLoginInfo"] == null)
+            if (!AuthManager.IsLogined())
             {
                 Response.Redirect("/Login.aspx");
                 return;
             }
 
             string account = this.Session["UserLoginInfo"] as string;
-            var drUserInfo = UserInfoManager.GetUserInfoByAccount(account);
 
-            if (drUserInfo == null)
+            var currentUser = AuthManager.GetCurrentUser();
+
+            if (currentUser == null) //如果帳號不存在，導致登入頁
             {
+                this.Session["UserLoginInfo"] = null;
                 Response.Redirect("/Login.aspx");
                 return;
             }
@@ -43,7 +46,7 @@ namespace homework.SystemAdmin
                     int id;
                     if (int.TryParse(idText, out id))
                     {
-                        var drAccounting = AccountingManager.GetAccounting(id, drUserInfo["ID"].ToString());
+                        var drAccounting = AccountingManager.GetAccounting(id, currentUser.ID);
 
                         if (drAccounting == null)
                         {
@@ -78,18 +81,14 @@ namespace homework.SystemAdmin
                 return;
             }
 
-
-
-            string account = this.Session["UserLoginInfo"] as string;
-            var dr = UserInfoManager.GetUserInfoByAccount(account);
-
-            if (dr == null)
+            UserInfoModel currentUser = AuthManager.GetCurrentUser();
+            if (currentUser == null)
             {
                 Response.Redirect("/Login.aspx");
                 return;
             }
 
-            string userID = dr["ID"].ToString();
+            string userID = currentUser.ID;
             string actTypeText = this.ddlActType.SelectedValue;
             string amountText = this.txtAmount.Text;
             string caption = this.txtCaption.Text;
