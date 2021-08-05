@@ -138,6 +138,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\homework.Auth\homework.Auth.csproj">
+      <Project>{b2c3ae47-035b-416e-9ede-bae23961fa66}</Project>
+      <Name>homework.Auth</Name>
+    </ProjectReference>
     <ProjectReference Include="..\homework.DBSource\homework.DBSource.csproj">
       <Project>{66d6936d-0efa-429d-829a-18e8390eb786}</Project>
       <Name>homework.DBSource</Name>

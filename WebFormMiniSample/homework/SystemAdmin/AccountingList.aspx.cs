@@ -1,4 +1,5 @@
-﻿using homework.DBSource;
+﻿using homework.Auth;
+using homework.DBSource;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +16,7 @@ namespace homework.SystemAdmin
         protected void Page_Load(object sender, EventArgs e)
         {
             //驗證登入
-            if (this.Session["UserLoginInfo"] == null)
+            if(!AuthManager.IsLogined())
             {
                 Response.Redirect("/Login.aspx");
                 return;
