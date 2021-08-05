@@ -61,7 +61,7 @@ namespace homework.DBSource
         }
 
 
-        public static void ModifyData(string connStr, string dbCommand, List<SqlParameter> paramList)
+        public static int ModifyData(string connStr, string dbCommand, List<SqlParameter> paramList)
         {
             //連結與執行
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -70,7 +70,8 @@ namespace homework.DBSource
                 {
                     comm.Parameters.AddRange(paramList.ToArray());
                     conn.Open();
-                    comm.ExecuteNonQuery();
+                    int effectRowsCount = comm.ExecuteNonQuery();
+                    return effectRowsCount;
                 }
             }
         }
