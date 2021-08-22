@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homework", "homework\homewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homework.Auth", "homework.Auth\homework.Auth.csproj", "{B2C3AE47-035B-416E-9EDE-BAE23961FA66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{FF9F8EF5-C17A-434E-92FC-AD50CAA51FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project", "Project\Project.csproj", "{7D0BBBB5-D167-43F1-A403-76CAB9C705FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{B2C3AE47-035B-416E-9EDE-BAE23961FA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C3AE47-035B-416E-9EDE-BAE23961FA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2C3AE47-035B-416E-9EDE-BAE23961FA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9F8EF5-C17A-434E-92FC-AD50CAA51FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9F8EF5-C17A-434E-92FC-AD50CAA51FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9F8EF5-C17A-434E-92FC-AD50CAA51FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9F8EF5-C17A-434E-92FC-AD50CAA51FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0BBBB5-D167-43F1-A403-76CAB9C705FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0BBBB5-D167-43F1-A403-76CAB9C705FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0BBBB5-D167-43F1-A403-76CAB9C705FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0BBBB5-D167-43F1-A403-76CAB9C705FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
