@@ -72,6 +72,7 @@
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Shouhin.aspx" />
     <Content Include="Web.config" />
     <Content Include="register.aspx" />
   </ItemGroup>
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shouhin.aspx.cs">
+      <DependentUpon>Shouhin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shouhin.aspx.designer.cs">
+      <DependentUpon>Shouhin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
