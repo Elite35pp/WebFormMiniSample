@@ -11,17 +11,8 @@ namespace Project
 {
 
 
-    public partial class Login
+    public partial class WebForm1
     {
-
-        /// <summary>
-        /// plcLogin 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder plcLogin;
 
         /// <summary>
         /// txtAccount 控制項。
@@ -42,21 +33,12 @@ namespace Project
         protected global::System.Web.UI.WebControls.TextBox txtPWD;
 
         /// <summary>
-        /// btnLogin 控制項。
+        /// btnSign 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
-
-        /// <summary>
-        /// ltlMsg 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlMsg;
+        protected global::System.Web.UI.WebControls.Button btnSign;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Project.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="Project.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -79,26 +79,25 @@
                 background-color: #ffc31f;
                 color: #816516;
             }
-           
+
+        body {
+            background-color: beige;
+        }
     </style>
     <div class="container  py-5">
         <div class="d-flex justify-content-center align-items-center w-100">
             <div class="text-center  w-50">
-                <asp:PlaceHolder runat="server" ID="plcLogin" Visible="false">
                 <div>
-                    <h2>請選擇註冊或是登入</h2>
-                    <label for="account">帳號　</label>
-                    <asp:TextBox ID="txtAccount" runat="server"  placeholder="請輸入帳號" CssClass="account"></asp:TextBox><br />
-                    <label for="password">密碼　</label>
+                    <h2>註冊</h2>
+                    <label for="account"></label>
+                    <asp:TextBox ID="txtAccount" runat="server" placeholder="請輸入帳號" CssClass="account"></asp:TextBox><br />
+                    <label for="password"></label>
                     <asp:TextBox ID="txtPWD" runat="server" TextMode="Password" placeholder="請輸入密碼" CssClass="password"></asp:TextBox>
                 </div>
                 <br />
                 <div id="btn">
-                    <a href="register.aspx">沒有帳號? 立即註冊</a><br />
-                    <asp:Button ID="btnLogin" runat="server" Text="登入" CssClass="logIn"  OnClick="btnLogin_Click"/>
-                    <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+                    <asp:Button ID="btnSign" runat="server" Text="註冊" CssClass="signUp" />
                 </div>
-                </asp:PlaceHolder>
             </div>
         </div>
     </div>
