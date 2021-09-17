@@ -9,9 +9,21 @@ namespace Project
 {
     public partial class HomePage : System.Web.UI.Page
     {
+        public string name = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Session["UserLoginInfo"] == null)
+                {
+                    return;
+                }
+                name = Session["UserLoginInfo"].ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

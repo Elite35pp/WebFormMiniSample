@@ -19,7 +19,8 @@
         }
 
         .account,
-        .password {
+        .password,
+        .email {
             width: 500px;
             height: 40px;
             padding: 10px;
@@ -92,11 +93,12 @@
                     <label for="account"></label>
                     <asp:TextBox ID="txtAccount" runat="server" placeholder="請輸入帳號" CssClass="account"></asp:TextBox><br />
                     <label for="password"></label>
-                    <asp:TextBox ID="txtPWD" runat="server" TextMode="Password" placeholder="請輸入密碼" CssClass="password"></asp:TextBox>
+                    <asp:TextBox ID="txtPWD" runat="server" TextMode="Password" placeholder="請輸入密碼" CssClass="password"></asp:TextBox><br />
                 </div>
                 <br />
+                <asp:Literal ID="ltlmsg" runat="server"></asp:Literal>
                 <div id="btn">
-                    <asp:Button ID="btnSign" runat="server" Text="註冊" CssClass="signUp" />
+                    <asp:Button ID="btnSign" runat="server" Text="註冊" CssClass="signUp"  OnClick="btnSign_Click"/>
                 </div>
             </div>
         </div>

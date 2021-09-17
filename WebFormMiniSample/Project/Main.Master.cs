@@ -11,7 +11,28 @@ namespace Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                try
+                {
+                    if (Session["UserLoginInfo"] == null)
+                    {
+                        return;
+                    }
+                    btnLogout.Visible = true;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["UserLoginInfo"] = null;
+            btnLogout.Visible = false;
+            Response.Redirect("/HomePage.aspx");
         }
     }
 }
